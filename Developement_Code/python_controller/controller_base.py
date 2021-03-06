@@ -2,7 +2,7 @@ import ctypes
 
 class Controller(object):
     def __init__(self):
-        self.__path='./MPC08D.dll'
+        self.__path='./MPC08D.dll'#按照集体路径更新
         self.controller=ctypes.windll.LoadLibrary(self.__path)
     def auto_set(self):
         self.controller.auto_set.restype=ctypes.c_int
