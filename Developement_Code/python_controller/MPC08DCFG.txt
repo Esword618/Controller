@@ -1,0 +1,7 @@
+
+[SysParamSetting]
+
+[ErrSaveToFile]=1
+[RecordZeroDis]=0
+[LastOutStatus]=0
+[AutoSetMessage]=0

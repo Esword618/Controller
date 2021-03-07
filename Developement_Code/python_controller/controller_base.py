@@ -92,33 +92,65 @@ class Controller(object):
         self.controller.reset_pos.argtypes=(ctypes.c_int)
         self.controller.reset_pos.restype=ctypes.c_int
         return self.controller.reset_pos(num)
-#运动指令
+#独立运动函数
+#(1)点位运动函数
     def con_pmove(self,num,step):
         self.controller.con_pmove.argtyps=(ctypes.c_int,ctypes.c_double)
         self.con_pmove.con_pmove.restype=ctypes.c_int
         return self.controller.con_pmove(num,step)
+    def fast_pmove(self,num,step):
+        self.controller.fast_pmove.argtyps=(ctypes.c_int,ctypes.c_double)
+        self.controller.fast_pmove.restype=ctypes.c_int
+        return self.controller.fast_pmove(num,step)
+    def con_pmove2(self,num_1,step_1,num_2,step_2):
+        self.controller.con_pmove2.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
+        self.con_pmove.con_pmove2.restype=ctypes.c_int
+        return self.controller.con_pmove2(num_1,step_1,num_2,step_2)
+    def fast_pmove2(self,num_1,step_1,num_2,step_2):
+        self.controller.fast_pmove2.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
+        self.con_pmove.fast_pmove2.restype=ctypes.c_int
+        return self.controller.fast_pmove2(num_1,step_1,num_2,step_2)
+    def con_pmove3(self,num_1,step_1,num_2,step_2,num_3,step_3):
+        self.controller.con_pmove3.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
+        self.con_pmove.con_pmove3.restype=ctypes.c_int
+        return self.controller.con_pmove3(num_1,step_1,num_2,step_2,num_3,step_3)
+    def fast_pmove3(self,num_1,step_1,num_2,step_2,num_3,step_3):
+        self.controller.fast_pmove3.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
+        self.con_pmove.fast_pmove3.restype=ctypes.c_int
+        return self.controller.fast_pmove3(num_1,step_1,num_2,step_2,num_3,step_3)
+    def con_pmove4(self,num_1,step_1,num_2,step_2,num_3,step_3,num_4,step_4):
+        self.controller.con_pmove4.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
+        self.con_pmove.con_pmove4.restype=ctypes.c_int
+        return self.controller.con_pmove4(num_1,step_1,num_2,step_2,num_3,step_3,num_4,step_4)
+    def con_pmove4(self,num_1,step_1,num_2,step_2,num_3,step_3,num_4,step_4):
+        self.controller.con_pmove3.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
+        self.con_pmove.con_pmove3.restype=ctypes.c_int
+        return self.controller.con_pmove(num_1,step_1,num_2,step_2,num_3,step_3,num_4,step_4)
+#(2)连续运动函数
 
-def main():
-    myController=Controller()
-    while True:
-        axis_num=myController.auto_set()
-        if axis_num==-1:
-            print('auto_set: error')
-        else:
-            print('auto_set: OK')
-            break
-    while True:
-        card_num=myController.init_board()
-        if card_num==-1:
-            print('init_borad: error')
-        else:
-            print('init_board: OK')
-            break
+#(3)回原点函数
+
+#插补运动函数
+#(1)线性插补函数
+
+#制动函数
+
+#数字IO操作函数
+
+#特殊功能函数
+#(1)反向间隙补偿
+
+#(2)动态改变目标位置
+
+#(3)可掉电保护数据区读写功能
+
+#位置和状态设置函数
+
+#错误代码处理函数
+
+#控制器版本获取函数
 
 
-
-if __name__=="__main__":
-    main()
 
     
 
