@@ -65,7 +65,7 @@ class Controller(object):
         self.controller.set_conspeed.restype=ctypes.c_int
         return self.controller.set_conspeed(num,conspeed)
     def set_profile(self,num,low_speed,high_speed,acceleration,deceleration):
-        self.controller.set_profile.argtypes=(ctypes.c_int,ctypes.c_double,ctypes.c_double,ctypes.c_double,ctypes.c_double)
+        self.controller.set_profile.argtypes=(ctypes.c_int,ctypes.c_double,ctypes.c_double,ctypes.controller.c_double,ctypes.c_double)
         self.controller.set_profile.restype=ctypes.c_int
         return self.controller.set_profile(num,low_speed,high_speed,acceleration,deceleration)
     def set_vector_conspeed(self,vec_conspeed):
@@ -85,8 +85,8 @@ class Controller(object):
         self.controller.set_s_section.restype=ctypes.c_int
         return self.controller.set_s_section(num,accel_sec,decel_sec)
     def set_abs_pos(self,num,pos):
-        self.set_abs_pos.argtypes=(ctypes.c_int,ctypes.c_double)
-        self.set_abs_pos.restyps=ctypes.c_int
+        self.controller.set_abs_pos.argtypes=(ctypes.c_int,ctypes.c_double)
+        self.controller.set_abs_pos.restyps=ctypes.c_int
         return self.controller.set_abs_pos(num,pos)
     def reset_pos(self,num):
         self.controller.reset_pos.argtypes=(ctypes.c_int)
@@ -96,7 +96,7 @@ class Controller(object):
 #(1)点位运动函数
     def con_pmove(self,num,step):
         self.controller.con_pmove.argtyps=(ctypes.c_int,ctypes.c_double)
-        self.con_pmove.con_pmove.restype=ctypes.c_int
+        self.controller.con_pmove.restype=ctypes.c_int
         return self.controller.con_pmove(num,step)
     def fast_pmove(self,num,step):
         self.controller.fast_pmove.argtyps=(ctypes.c_int,ctypes.c_double)
@@ -104,28 +104,28 @@ class Controller(object):
         return self.controller.fast_pmove(num,step)
     def con_pmove2(self,num_1,step_1,num_2,step_2):
         self.controller.con_pmove2.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
-        self.con_pmove.con_pmove2.restype=ctypes.c_int
+        self.controller.con_pmove2.restype=ctypes.c_int
         return self.controller.con_pmove2(num_1,step_1,num_2,step_2)
     def fast_pmove2(self,num_1,step_1,num_2,step_2):
         self.controller.fast_pmove2.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
-        self.con_pmove.fast_pmove2.restype=ctypes.c_int
+        self.controller.fast_pmove2.restype=ctypes.c_int
         return self.controller.fast_pmove2(num_1,step_1,num_2,step_2)
     def con_pmove3(self,num_1,step_1,num_2,step_2,num_3,step_3):
         self.controller.con_pmove3.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
-        self.con_pmove.con_pmove3.restype=ctypes.c_int
+        self.controller.con_pmove3.restype=ctypes.c_int
         return self.controller.con_pmove3(num_1,step_1,num_2,step_2,num_3,step_3)
     def fast_pmove3(self,num_1,step_1,num_2,step_2,num_3,step_3):
         self.controller.fast_pmove3.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
-        self.con_pmove.fast_pmove3.restype=ctypes.c_int
+        self.controller.fast_pmove3.restype=ctypes.c_int
         return self.controller.fast_pmove3(num_1,step_1,num_2,step_2,num_3,step_3)
     def con_pmove4(self,num_1,step_1,num_2,step_2,num_3,step_3,num_4,step_4):
         self.controller.con_pmove4.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
-        self.con_pmove.con_pmove4.restype=ctypes.c_int
+        self.controller.con_pmove4.restype=ctypes.c_int
         return self.controller.con_pmove4(num_1,step_1,num_2,step_2,num_3,step_3,num_4,step_4)
     def con_pmove4(self,num_1,step_1,num_2,step_2,num_3,step_3,num_4,step_4):
-        self.controller.con_pmove3.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
-        self.con_pmove.con_pmove3.restype=ctypes.c_int
-        return self.controller.con_pmove(num_1,step_1,num_2,step_2,num_3,step_3,num_4,step_4)
+        self.controller.con_pmove4.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double,ctypes.c_int,ctypes.c_double)
+        self.controller.con_pmove4.restype=ctypes.c_int
+        return self.controller.con_pmove4(num_1,step_1,num_2,step_2,num_3,step_3,num_4,step_4)
 #(2)连续运动函数
 
 #(3)回原点函数
