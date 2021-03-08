@@ -150,8 +150,3 @@ class Controller(object):
 
 #控制器版本获取函数
 
-
-
-    
-
-
