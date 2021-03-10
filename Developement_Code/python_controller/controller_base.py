@@ -1,4 +1,5 @@
 import ctypes
+from ctypes import POINTER
 
 
 # argtyps传入
@@ -85,7 +86,7 @@ class Controller(object):
 
     def set_profile(self, num, low_speed, high_speed, acceleration, deceleration):
         self.controller.set_profile.argtypes = (
-        ctypes.c_int, ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double)
+            ctypes.c_int, ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double)
         self.controller.set_profile.restype = ctypes.c_int
         return self.controller.set_profile(num, low_speed, high_speed, acceleration, deceleration)
 
@@ -96,7 +97,7 @@ class Controller(object):
 
     def set_vector_profile(self, vec_vl, vec_vh, vec_ad, vec_dc):
         self.controller.set_vector_profile.argtypes = (
-        ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double)
+            ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double)
         self.controller.set_vector_profile.restype = ctypes.c_int
         return self.controller.set_vector_profile(vec_vl, vec_vh, vec_ad, vec_dc)
 
@@ -144,53 +145,109 @@ class Controller(object):
 
     def con_pmove3(self, num_1, step_1, num_2, step_2, num_3, step_3):
         self.controller.con_pmove3.argtyps = (
-        ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double)
+            ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double)
         self.controller.con_pmove3.restype = ctypes.c_int
         return self.controller.con_pmove3(num_1, step_1, num_2, step_2, num_3, step_3)
 
     def fast_pmove3(self, num_1, step_1, num_2, step_2, num_3, step_3):
         self.controller.fast_pmove3.argtyps = (
-        ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double)
+            ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double)
         self.controller.fast_pmove3.restype = ctypes.c_int
         return self.controller.fast_pmove3(num_1, step_1, num_2, step_2, num_3, step_3)
 
     def con_pmove4(self, num_1, step_1, num_2, step_2, num_3, step_3, num_4, step_4):
         self.controller.con_pmove4.argtyps = (
-        ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int,
-        ctypes.c_double)
+            ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int,
+            ctypes.c_double)
         self.controller.con_pmove4.restype = ctypes.c_int
         return self.controller.con_pmove4(num_1, step_1, num_2, step_2, num_3, step_3, num_4, step_4)
 
-    def con_pmove4(self, num_1, step_1, num_2, step_2, num_3, step_3, num_4, step_4):
-        self.controller.con_pmove3.argtyps = (
-        ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int,
-        ctypes.c_double)
-        self.controller.con_pmove3.restype = ctypes.c_int
-        return self.controller.con_pmove(num_1, step_1, num_2, step_2, num_3, step_3, num_4, step_4)
+    def fast_pmove4(self, num_1, step_1, num_2, step_2, num_3, step_3, num_4, step_4):
+        self.controller.fast_pmove4.argtyps = (
+            ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int,
+            ctypes.c_double)
+        self.controller.fast_pmove4.restype = ctypes.c_int
+        return self.controller.fast_pmove4(num_1, step_1, num_2, step_2, num_3, step_3, num_4, step_4)
 
     # (2)连续运动函数
     def con_vmove(self, num, dir1):
         self.controller.con_vmove.argtyps = (ctypes.c_int, ctypes.c_int)
         self.controller.con_vmove.restype = ctypes.c_int
         return self.controller.con_vmove(num, dir1)
-# (3)回原点函数
 
-# 插补运动函数
-# (1)线性插补函数
+    def fast_vmove(self, num, dir1):
+        self.controller.fast_vmove.argtyps = (ctypes.c_int, ctypes.c_int)
+        self.controller.fast_vmove.restype = ctypes.c_int
+        return self.controller.fast_vmove(num, dir1)
 
-# 制动函数
+    def con_vmove2(self, num_1, dir1, num_2, dir2):
+        self.controller.con_vmove2.argtyps = (ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.con_vmove2.restype = ctypes.c_int
+        return self.controller.con_vmove2(num_1, dir1, num_2, dir2)
 
-# 数字IO操作函数
+    def fast_vmove2(self, num_1, dir1, num_2, dir2):
+        self.controller.fast_vmove2.argtyps = (ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.fast_vmove2.restype = ctypes.c_int
+        return self.controller.fast_vmove2(num_1, dir1, num_2, dir2)
 
-# 特殊功能函数
-# (1)反向间隙补偿
+    def con_vmove3(self, num_1, dir1, num_2, dir2, num_3, dir3):
+        self.controller.con_vmove3.argtyps = (
+        ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.con_vmove3.restype = ctypes.c_int
+        return self.controller.con_vmove3(num_1, dir1, num_2, dir2, num_3, dir3)
 
-# (2)动态改变目标位置
+    def fast_vmove3(self, num_1, dir1, num_2, dir2, num_3, dir3):
+        self.controller.fast_vmove3.argtyps = (
+        ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.fast_vmove3.restype = ctypes.c_int
+        return self.controller.fast_vmove3(num_1, dir1, num_2, dir2, num_3, dir3)
 
-# (3)可掉电保护数据区读写功能
+    def con_vmove4(self, num_1, dir1, num_2, dir2, num_3, dir3):
+        self.controller.con_vmove4.argtyps = (
+        ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.con_vmove4.restype = ctypes.c_int
+        return self.controller.con_vmove4(num_1, dir1, num_2, dir2, num_3, dir3)
 
-# 位置和状态设置函数
+    def fast_vmove4(self, num_1, dir1, num_2, dir2, num_3, dir3, num_4, dir4):
+        self.controller.fast_vmove4.argtyps = (
+        ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.fast_vmove4.restype = ctypes.c_int
+        return self.controller.fast_vmove4(num_1, dir1, num_2, dir2, num_3, dir3, num_4, dir4)
 
-# 错误代码处理函数
+    # (3)回原点函数
 
-# 控制器版本获取函数
+    # 插补运动函数
+    # (1)线性插补函数
+
+    # 制动函数
+
+    # 数字IO操作函数
+
+    # 特殊功能函数
+    # (1)反向间隙补偿
+
+    # (2)动态改变目标位置
+
+    # (3)可掉电保护数据区读写功能
+
+    # 位置和状态设置函数
+
+    # 错误代码处理函数
+
+    # 控制器版本获取函数
+    def get_lib_ver(self, major, minor1, minor2):
+        self.controller.get_lib_ver.argtyps = (POINTER(ctypes.c_int), POINTER(ctypes.c_int), POINTER(ctypes.c_int))
+        self.controller.get_lib_ver.restype = ctypes.c_int
+        return self.controller.get_lib_ver(major, minor1, minor2)
+
+    def get_sys_ver(self, major, minor1, minor2):
+        self.controller.get_sys_ver.argtyps = (POINTER(ctypes.c_int), POINTER(ctypes.c_int), POINTER(ctypes.c_int))
+        self.controller.get_sys_ver.restype = ctypes.c_int
+        return self.controller.get_sys_ver(major, minor1, minor2)
+
+    def get_card_ver(self, cardno, type, major, minor1, minor2):
+        self.controller.get_card_ver.argtyps = (
+            POINTER(ctypes.c_int), POINTER(ctypes.c_int), POINTER(ctypes.c_int), POINTER(ctypes.c_int),
+            POINTER(ctypes.c_int))
+        self.controller.get_card_ver.restype = ctypes.c_int
+        return self.controller.get_card_ver(cardno, type, major, minor1, minor2)
