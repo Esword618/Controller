@@ -1,6 +1,7 @@
 import ctypes
 from ctypes import POINTER
 
+
 class Controller(object):
     def __init__(self):
         self.__path = '.\DLL\MPC08D.dll'  # 按照具体路径设置
@@ -212,11 +213,138 @@ class Controller(object):
         return self.controller.fast_vmove4(num_1, dir1, num_2, dir2, num_3, dir3, num_4, dir4)
 
     # (3)回原点函数
+    def con_hmove(self, num, dir1):
+        self.controller.con_hmove.argtyps = (ctypes.c_int, ctypes.c_int)
+        self.controller.con_homove.restype = ctypes.c_int
+        return self.controller.com_hmove(num, dir1)
+
+    def fast_hmove(self, num, dir1):
+        self.controller.fast_hmove.argtyps = (ctypes.c_int, ctypes.c_int)
+        self.controller.fast_hmove.restype = ctypes.c_int
+        return self.controller.fast_hmove(num, dir1)
+
+    def con_hmove2(self, num1, dir1, num2, dir2):
+        self.controller.con_hmove2.argtyps = (ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.con_hmove2.restype = ctypes.c_int
+        return self.controller.con_hmove2(num1, dir1, num2, dir2)
+
+    def fast_hmove2(self, num1, dir1, num2, dir2):
+        self.controller.fast_hmove2.argtyps = (ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.fast_hmove2.restype = ctypes.c_int
+        return self.controller.fast_hmove2(num1, dir1, num2, dir2)
+
+    def con_hmove3(self, num1, dir1, num2, dir2, num3, dir3):
+        self.controller.con_hmove3.argtyps = (
+        ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.con_hmove3.restype = ctypes.c_int
+        return self.controller.con_hmove3(num1, dir1, num2, dir2, num3, dir3)
+
+    def fast_hmove3(self, num1, dir1, num2, dir2, num3, dir3):
+        self.controller.fast_hmove3.argtyps = (
+        ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.fast_hmove3.restype = ctypes.c_int
+        return self.controller.fast_hmove3(num1, dir1, num2, dir2, num3, dir3)
+
+    def fast_hmove4(self, num1, dir1, num2, dir2, num3, dir3, num4, dir4):
+        self.controller.fast_hmove3.argtyps = (
+        ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.fast_hmove3.restype = ctypes.c_int
+        return self.controller.fast_hmove3(num1, dir1, num2, dir2, num3, dir3, num4, dir4)
+
+    def con_hmove4(self, num1, dir1, num2, dir2, num3, dir3, num4, dir4):
+        self.controller.con_hmove3.argtyps = (
+        ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.con_hmove3.restype = ctypes.c_int
+        return self.controller.con_hmove3(num1, dir1, num2, dir2, num3, dir3, num4, dir4)
 
     # 插补运动函数
     # (1)线性插补函数
+    def con_line2(self, num1, pos1, num2, pos2):
+        self.controller.con_line2.argtyps = (ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double)
+        self.controller.con_line2.restype = ctypes.c_int
+        return self.controller.con_line2(num1, pos1, num2, pos2)
+
+    def fast_line2(self, num1, pos1, num2, pos2):
+        self.controller.fast_line2.argtyps = (ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double)
+        self.controller.fast_line2.restype = ctypes.c_int
+        return self.controller.fast_line2(num1, pos1, num2, pos2)
+
+    def con_line3(self, num1, pos1, num2, pos2, num3, pos3):
+        self.controller.con_line3.argtyps = (
+        ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double)
+        self.controller.con_line3.restype = ctypes.c_int
+        return self.controller.con_line3(num1, pos1, num2, pos2, num3, pos3)
+
+    def fast_line3(self, num1, pos1, num2, pos2, num3, pos3):
+        self.controller.fast_line3.argtyps = (
+        ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double)
+        self.controller.fast_line3.restype = ctypes.c_int
+        return self.controller.fast_line3(num1, pos1, num2, pos2, num3, pos3)
+
+    def con_line4(self, num1, pos1, num2, pos2, num3, pos3, num4, pos4):
+        self.controller.con_line3.argtyps = (
+        ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int,
+        ctypes.c_double)
+        self.controller.con_line3.restype = ctypes.c_int
+        return self.controller.con_line3(num1, pos1, num2, pos2, num3, pos3, num4, pos4)
+
+    def fast_line4(self, num1, pos1, num2, pos2, num3, pos3, num4, pos4):
+        self.controller.fast_line3.argtyps = (
+        ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int, ctypes.c_double, ctypes.c_int,
+        ctypes.c_double)
+        self.controller.fast_line3.restype = ctypes.c_int
+        return self.controller.fast_line3(num1, pos1, num2, pos2, num3, pos3, num4, pos4)
 
     # 制动函数
+    def sudden_stop(self, num):
+        self.controller.sudden_stop.argtyps = (ctypes.c_int)
+        self.controller.sudden_stop.restype = ctypes.c_int
+        return self.controller.sudden_stop(num)
+
+    def sudden_stop2(self, num1, num2):
+        self.controller.sudden_stop2.argtyps = (ctypes.c_int, ctypes.c_int)
+        self.controller.sudden_stop2.restype = ctypes.c_int
+        return self.controller.sudden_stop(num1, num2)
+
+    def sudden_stop3(self, num1, num2, num3):
+        self.controller.sudden_stop3.argtyps = (ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.sudden_stop3.restype = ctypes.c_int
+        return self.controller.sudden_stop(num1, num2, num3)
+
+    def sudden_stop4(self, num1, num2, num3, num4):
+        self.controller.sudden_stop3.argtyps = (ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.sudden_stop3.restype = ctypes.c_int
+        return self.controller.sudden_stop(num1, num2, num3, num4)
+
+    def decel_stop(self, num):
+        self.controller.decel_stop.argtyps = (ctypes.c_int)
+        self.controller.decel_stop.restype = ctypes.c_int
+        return self.controller.decel_stop(num)
+
+    def decel_stop2(self, num1, num2):
+        self.controller.decel_stop2.argtyps = (ctypes.c_int, ctypes.c_int)
+        self.controller.decel_stop2.restype = ctypes.c_int
+        return self.controller.decel_stop(num1, num2)
+
+    def decel_stop3(self, num1, num2, num3):
+        self.controller.decel_stop3.argtyps = (ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.decel_stop3.restype = ctypes.c_int
+        return self.controller.decel_stop(num1, num2, num3)
+
+    def decel_stop4(self, num1, num2, num3, num4):
+        self.controller.decel_stop3.argtyps = (ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        self.controller.decel_stop3.restype = ctypes.c_int
+        return self.controller.decel_stop(num1, num2, num3, num4)
+
+    def dmove_pause(self, num):
+        self.controller.move_pause.argtyps = (ctypes.c_int)
+        self.controller.move_pause.restype = ctypes.c_int
+        return self.controller.move_pause(num)
+
+    def move_resume(self, num):
+        self.controller.move_resume.argtyps = (ctypes.c_int)
+        self.controller.move_resume.restype = ctypes.c_int
+        return self.controller.move_resume(num)
 
     # 数字IO操作函数
 
