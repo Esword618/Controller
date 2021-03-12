@@ -136,6 +136,33 @@ class Controller(object):
 #制动函数
 
 #数字IO操作函数
+    def checkin_byte(self,cardno):
+        self.controller.checkin_byte.argtyps=(ctypes.c_int)
+        self.controller.checkin_byte.restype=ctypes.c_int
+        return self.controller.checkin_byte(cardno)
+    def checkin_bit(self,cardno,bitno):
+        self.controller.checkin_bit.argtyps=(ctypes.c_int,ctypes.c_int)
+        self.controller.checkin_bit.restype=ctypes.c_int
+        return self.controller.checkin_bit(cardno,bitno)
+    def outport_byte(self,cardno,bytedata):
+        self.controller.outport_byte.argtyps=(ctypes.c_int,ctypes.c_int)
+        self.controller.outport_byte.restype=ctypes.c_int
+        return self.controller.outport_byte(cardno,bytedata)
+    def outport_bit(self,cardno,bitno,status):
+        self.controller.utport_bit.argtyps=(ctypes.c_int,ctypes.c_int,ctypes.c_int)
+        self.controller.utport_bit.restype=ctypes.c_int
+        return self.controller.outport_bit(cardno,bitno,status)
+    def check_sfr(self,cardno):
+        self.controller.check_sfr.cardno.argtyps=(ctypes.c_int)
+        self.controller.check_sfr.cardno.restype=ctypes.c_int
+        return self.controller.check_sfr(cardno)
+    def check_sfr_bit(self,cardno,bitno):
+        self.controller.check_sfr_bit.argtyps=(ctypes.c_int,ctypes.c_int)
+        self.controller.check_sfr_bit.restype=ctypes.c_int
+        return self.controller.check_sfr_bit(cardno,bitno)
+
+
+
 
 #特殊功能函数
 #(1)反向间隙补偿
@@ -145,8 +172,94 @@ class Controller(object):
 #(3)可掉电保护数据区读写功能
 
 #位置和状态设置函数
+    def get_max_axe(self):
+        self.controller.get_max_axe.restype = ctypes.c_int
+        return self.controller.get_max_axe()
+    def get_board_num(self):
+        self.controller.get_board_num.restype = ctypes.c_int
+        return self.controller.get_board_num()
+    def get_axe(self,board_no):
+        self.controller.get_axe.argtyps=(ctypes.c_int)
+        self.controller.get_axe.restype=ctypes.c_int
+        return self.controller.get_axe(board_no)
+    def check_IC(self,cardno):
+        self.controller.check_IC.argtyps=(ctypes.c_int)
+        self.controller.check_IC.restype=ctypes.c_int
+        return self.controller.check_IC(cardno)
+    def get_abs_pos(self,num,pos):
+        self.controller.get_abs_pos.argtyps=(ctypes.c_int,ctypes.c_double)
+        self.controller.get_abs_pos.restype=ctypes.c_int
+        return self.controller.get_abs_pos(num,pos)
+    def get_conspeed(self,num):
+        self.controller.get_conspeed.argtyps=(ctypes.c_int)
+        self.controller.get_conspeed.restype=ctypes.c_double
+        return self.controller.get_conspeed(num)
+    def get_profile(self,num,vl,vh,ad,dc):
+        self.controller.get_profile.argtyps=(ctypes.c_int,ctypes.c_double,ctypes.c_double,ctypes.c_double,ctypes.c_double)
+        self.controller.get_profile.restype=ctypes.c_int
+        return self.controller.get_profile(num,vl,vh,ad,dc)
+    def get_vector_conspeed(self):
+        self.controller.get_vector_conspeed.restype = ctypes.c_double
+        return self.controller.get_vector_conspeed()
+    def get_vector_profile(self,vec_vl,vec_vh,vec_ad,vec_dc):
+        self.controller.get_vector_profile.argtyps=(ctypes.c_double,ctypes.c_double,ctypes.c_double,ctypes.c_double)
+        self.controller.get_vector_profile.restype=ctypes.c_int
+        return self.controller.get_vector_profile(vec_vl,vec_vh,vec_ad,vec_dc)
+    def get_rate(self,num):
+        self.controller.get_rate.argtyps=(ctypes.c_int)
+        self.controller.get_rate.restype=ctypes.c_double
+        return self.controller.get_rate(num)
+    def get_cur_dir(self,num):
+        self.controller.get_cur_dir.argtyps=(ctypes.c_int)
+        self.controller.get_cur_dir.restype=ctypes.c_int
+        return self.controller.get_cur_dir(num)
+    def check_status(self,num):
+        self.controller.check_status.argtyps=(ctypes.c_int)
+        self.controller.check_status.restype=ctypes.c_int
+        return self.controller.check_status(num)
+    def check_done(self,num):
+        self.controller.check_done.argtyps=(ctypes.c_int)
+        self.controller.check_done.restype=ctypes.c_int
+        return self.controller.check_done(num)
+    def check_limit(self,num):
+        self.controller.check_limit.argtyps=(ctypes.c_int)
+        self.controller.check_limit.restype=ctypes.c_int
+        return self.controller.check_limit(num)
+    def check_home(self,num):
+        self.controller.check_home.argtyps=(ctypes.c_int)
+        self.controller.check_home.restype=ctypes.c_int
+        return self.controller.check_home(num)
+    def check_alarm(self,num):
+        self.controller.check_alarm.argtyps=(ctypes.c_int)
+        self.controller.check_alarm.restype=ctypes.c_int
+        return self.controller.check_alarm(num)
+    def check_card_alarm(self,num):
+        self.controller.check_card_alarm.argtyps=(ctypes.c_int)
+        self.controller.check_card_alarm.restype=ctypes.c_int
+        return self.controller.check_card_alarm(num)
+    def get_done_source(self,num,src):
+        self.controller.get_done_source.argtyps = (ctypes.c_int,ctypes.c_int)
+        self.controller.get_done_source.restype=ctypes.c_int
+        return self.controller.get_done_source(num,src)
+
+
+
+
 
 #错误代码处理函数
+    def get_err(self,index,data):
+        self.controller.get_err.argtyps = (ctypes.c_int,ctypes.c_int)
+        self.controller.get_err.restype=ctypes.c_int
+        return self.controller.get_err(index,data)
+    def get_last_err(self):
+        self.controller.get_last_err.restype = ctypes.c_int
+        return self.controller.get_last_err()
+    def reset_err(self):
+        self.controller.reset_err.restype = ctypes.c_int
+        return self.controller.reset_err()
+
+
+
 
 #控制器版本获取函数
 
