@@ -14,13 +14,7 @@ def main():
         else:
             print('auto_set: OK')
             break
-    while True:
-        card_num=myController.init_board()
-        if card_num==-1:
-            print('init_borad: error')
-        else:
-            print('init_board: OK')
-            break
+
 
 
 
