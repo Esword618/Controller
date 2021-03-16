@@ -397,10 +397,50 @@ class Controller(object):
     
     # 特殊功能函数
     # (1)反向间隙补偿
+    def set_backlash(self,num,backlash):
+        self.controller.set_backlash.argtyps=(ctypes.c_int,ctypes.c_double)
+        self.controller.set_backlash.restype=ctypes.c_int
+        return self.controller.set_backlash(num,backlash)
+    def start_backlash(self,num):
+        self.controller.start_backlash.argtyps=(ctypes.c_int)
+        self.controller.start_backlash.restype=ctypes.c_int
+        return self.controller.start_backlash(num)
+    def end_backlash(self,num):
+        self.controller.end_backlash.argtyps=(ctypes.c_int)
+        self.controller.end_backlash.restype=ctypes.c_int
+        return self.controller.end_backlash(num)
 
     # (2)动态改变目标位置
+    def change_pos(self,num,pos):
+        self.controller.change_pos.argtyps=(ctypes.c_int,ctypes.c_double)
+        self.controller.change_pos.restype=ctypes.c_int
+        return self.controller.change_pos(num,pos)
 
     # (3)可掉电保护数据区读写功能
+    def write_password_flash(self,cardno,no,data,password):
+        self.controller.write_password_flash.argtyps=(ctypes.c_int,ctypes.c_int,ctypes.c_int,ctypes.c_int)
+        self.controller.write_password_flash.restype=ctypes.c_int
+        return self.controller.write_password_flash(cardno,no,data,password)
+    def read_password_flash(self,cardno,no,data,password):
+        self.controller.read_password_flash.argtyps=(ctypes.c_int,ctypes.c_int,ctypes.c_int,ctypes.c_int)
+        self.controller.read_password_flash.restype=ctypes.c_int
+        return self.controller.read_password_flash(cardno,no,data,password)
+    def clear_password_flash(self,cardno,password):
+        self.controller.clear_password_flash.argtyps=(ctypes.c_int,ctypes.c_int)
+        self.controller.clear_password_flash.restype=ctypes.c_int
+        return self.controller.clear_password_flash(cardno,password)
+    def write_flash(self,cardno,piece,no,data):
+        self.controller.write_flash.argtyps=(ctypes.c_int,ctypes.c_int,ctypes.c_int,ctypes.c_int)
+        self.controller.write_flash.restype=ctypes.c_int
+        return self.controller.write_flash(cardno,piece,no,data)
+    def read_flash(self,cardno,piece,no,password):
+        self.controller.read_flash.argtyps=(ctypes.c_int,ctypes.c_int,ctypes.c_int,ctypes.c_int)
+        self.controller.read_flash.restype=ctypes.c_int
+        return self.controller.read_flash(cardno,piece,no,password)
+    def clear_flash(self,cardno,piece):
+        self.controller.clear_flash.argtyps=(ctypes.c_int,ctypes.c_int)
+        self.controller.clear_flash.restype=ctypes.c_int
+        return self.controller.clear_flash(cardno,piece)
 
     # 位置和状态设置函数
     def get_max_axe(self):
