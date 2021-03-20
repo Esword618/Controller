@@ -4,7 +4,7 @@ from ctypes import POINTER
 
 class Controller(object):
     def __init__(self):
-        self.__path = '.\DLL\MPC08D.dll'  # 按照具体路径设置
+        self.__path = r'C:\Users\yuping\Desktop\Developement_Code\python_controller\MPC08D.dll'  # 按照具体路径设置
         self.controller = ctypes.windll.LoadLibrary(self.__path)
 
     def auto_set(self):
@@ -72,10 +72,12 @@ class Controller(object):
         return self.controller.set_card_alm_logic(num, flag)
 
     # 运动参数设置
-    def set_max_speed(self, num, max_speed):
-        self.controller.set_max_speed.argtypes = (ctypes.c_int, ctypes.c_double)
-        self.controller.set_max_speed.restype = ctypes.c_int
-        return self.controller.set_max_speed(num, max_speed)
+    def set_maxspeed(self, num, max_speed):
+        num = ctypes.c_int(num)
+        max_speed = ctypes.c_double(max_speed)
+        # self.controller.set_maxspeed.argtypes = (ctypes.c_int, ctypes.c_double)
+        self.controller.set_maxspeed.restype = ctypes.c_int
+        return self.controller.set_maxspeed(num, max_speed)
 
     def set_conspeed(self, num, conspeed):
         self.controller.set_conspeed.argtypes = (ctypes.c_int, ctypes.c_double)
@@ -101,7 +103,7 @@ class Controller(object):
 
     def set_s_curve(self, num, mode):
         self.controller.set_s_curve.argtypes = (ctypes.c_int, ctypes.c_int)
-        self.controller.set_s_cureve.restype = ctypes.c_int
+        self.controller.set_s_curve.restype = ctypes.c_int
         return self.controller.set_s_curve(num, mode)
 
     def set_s_section(self, num, accel_sec, decel_sec):
@@ -122,7 +124,9 @@ class Controller(object):
     # 独立运动函数
     # (1)点位运动函数
     def con_pmove(self, num, step):
-        self.controller.con_pmove.argtyps = (ctypes.c_int, ctypes.c_double)
+        num = ctypes.c_int(num)
+        step = ctypes.c_double(step)
+        # self.controller.con_pmove.argtyps = (ctypes.c_int, ctypes.c_double)
         self.controller.con_pmove.restype = ctypes.c_int
         return self.controller.con_pmove(num, step)
 
@@ -380,9 +384,8 @@ class Controller(object):
         self.controller.check_sfr_bit.restype = ctypes.c_int
         return self.controller.check_sfr_bit(cardno, bitno)
 
-        def checkin_byte(self, cardno):
-
-            self.controller.checkin_byte.argtyps = (ctypes.c_int)
+    def checkin_byte(self, cardno):
+        self.controller.checkin_byte.argtyps = (ctypes.c_int)
         self.controller.checkin_byte.restype = ctypes.c_int
         return self.controller.checkin_byte(cardno)
 
