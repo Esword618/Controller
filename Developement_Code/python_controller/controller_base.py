@@ -1,10 +1,10 @@
 import ctypes
 from ctypes import POINTER
-
+from enum import Enum
 
 class Controller(object):
     def __init__(self):
-        self.__path = r'C:\Users\yuping\Desktop\Developement_Code\python_controller\MPC08D.dll'  # 按照具体路径设置
+        self.__path = r'C:\Users\jiaxi\Documents\Jiaxin.Qian_personal\Controller\Developement_Code\python_controller\MPC08D.dll'  # 按照具体路径设置
         self.controller = ctypes.windll.LoadLibrary(self.__path)
 
     def auto_set(self):
@@ -589,3 +589,20 @@ class Controller(object):
             POINTER(ctypes.c_int))
         self.controller.get_card_ver.restype = ctypes.c_int
         return self.controller.get_card_ver(cardno, type, major, minor1, minor2)
+
+class Mode(Enum):
+    double_Pluse = 0
+    pluse_dir = 1
+
+class Home_Mode(Enum):
+    Home_Mode_0 = 0
+    Home_Mode_1 = 1
+    Home_Mode_2 = 2
+    Home_Mode_3 = 3
+
+class Axis_Num(Enum):
+    Axis_NO_1 = 1
+    Axis_NO_2 = 2
+    Axis_NO_3 = 3
+    Axis_NO_4 = 4
+
