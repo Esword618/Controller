@@ -80,10 +80,10 @@ def set_Board_Mode(Channel_Num):
         return False
 
     #设置板卡报警信号有效电平为高电平并使能
-    if(myController.set_card_alm_logic(Channel_Num, base.Logic_Flag.HIGH.value) == -1):
+    if(myController.set_card_alm_logic(CARDNO, base.Logic_Flag.HIGH.value) == -1):
         print("板卡报警信号有限点电平使能失败")
         return False
-    if(myController.enable_card_alm(Channel_Num, base.Status.ON.value) == -1):
+    if(myController.enable_card_alm(CARDNO, base.Status.ON.value) == -1):
         print("板卡报警信号使能失败")
         return False
 
@@ -106,7 +106,7 @@ def check_Motion_State():
 
 
 def main():
-    # 初始化控制卡失败则退出测试系统
+    # 初始化控制卡失败
     if(init_Board() == False):
         print("请检查配置后重试")
         sys.exit(0)

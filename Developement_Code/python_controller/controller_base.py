@@ -68,11 +68,11 @@ class Controller(object):
         self.controller.set_org_logic.restype = ctypes.c_int
         return self.controller.set_org_logic(num, flag)
 
-    def set_card_alm_logic(self, num, flag):
+    def set_card_alm_logic(self, cardno, flag):
         self.controller.set_card_alm_logic.argtypes = (
             ctypes.c_int, ctypes.c_int)
         self.controller.set_card_alm_logic.restype = ctypes.c_int
-        return self.controller.set_card_alm_logic(num, flag)
+        return self.controller.set_card_alm_logic(cardno, flag)
 
     # 运动参数设置
     def set_maxspeed(self, num, max_speed):
