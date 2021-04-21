@@ -7,8 +7,6 @@ import sys
 
 myController = base.Controller()
 
-CARDNO = myController.check_IC(1)  #用户板卡编号,在仅有唯一卡时该函数可读取其ID
-
 # 初始化控制卡
 def init_Board():
     # auto_set返回值判断
@@ -40,6 +38,10 @@ def init_Board():
 
 # 控制卡模式设置
 def set_Board_Mode(Channel_Num):
+
+    #用户板卡编号,在仅有唯一卡时该函数可读取其ID
+    cardno = myController.check_IC(1)
+
     #设置运动模式为脉冲方向
     if(myController.set_outmode(Channel_Num, base.Out_Mode.Pluse_Dir.value, 0) == -1):
         print("运动模式设置失败")
@@ -51,7 +53,7 @@ def set_Board_Mode(Channel_Num):
         return False
     
     #设置板卡通道1为高电平
-    if(myController.outport_bit(CARDNO, 1, base.Status.ON.value) == -1):
+    if(myController.outport_bit(cardno, 1, base.Status.ON.value) == -1):
         print("电机上电失败")
         return False
     
@@ -80,10 +82,10 @@ def set_Board_Mode(Channel_Num):
         return False
 
     #设置板卡报警信号有效电平为高电平并使能
-    if(myController.set_card_alm_logic(CARDNO, base.Logic_Flag.HIGH.value) == -1):
+    if(myController.set_card_alm_logic(cardno, base.Logic_Flag.HIGH.value) == -1):
         print("板卡报警信号有限点电平使能失败")
         return False
-    if(myController.enable_card_alm(CARDNO, base.Status.ON.value) == -1):
+    if(myController.enable_card_alm(cardno, base.Status.ON.value) == -1):
         print("板卡报警信号使能失败")
         return False
 
