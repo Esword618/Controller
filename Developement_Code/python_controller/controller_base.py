@@ -386,9 +386,9 @@ class Controller(object):
         return self.controller.outport_byte(cardno, bytedata)
 
     def outport_bit(self, cardno, bitno, status):
-        self.controller.utport_bit.argtyps = (
+        self.controller.outport_bit.argtyps = (
             ctypes.c_int, ctypes.c_int, ctypes.c_int)
-        self.controller.utport_bit.restype = ctypes.c_int
+        self.controller.outport_bit.restype = ctypes.c_int
         return self.controller.outport_bit(cardno, bitno, status)
 
     def check_sfr(self, cardno):
