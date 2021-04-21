@@ -617,9 +617,9 @@ class Controller(object):
         return self.controller.get_card_ver(cardno, type, major, minor1, minor2)
 
 
-class Mode(Enum):
-    double_Pluse = 0
-    pluse_dir = 1
+class Out_Mode(Enum):
+    Double_Pluse = 0
+    Pluse_Dir = 1
 
 
 class Home_Mode(Enum):
@@ -634,3 +634,13 @@ class Axis_Num(Enum):
     Axis_NO_2 = 2
     Axis_NO_3 = 3
     Axis_NO_4 = 4
+
+
+class Status(Enum):
+    OFF = 0
+    ON = 1
+
+
+class Logic_Flag(Enum):
+    LOW = 0
+    HIGH = 1
