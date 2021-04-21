@@ -59,7 +59,7 @@ def set_Board_Mode(Channel_Num):
     
     #设置外部报警信号有效电平为高电平并使能
     if(myController.set_alm_logic(Channel_Num, base.Logic_Flag.HIGH.value) == -1):
-        print("外部报警信号有限点电平使能失败")
+        print("外部报警信号有效电平使能失败")
         return False
     if(myController.enable_alm(Channel_Num, base.Status.ON.value) == -1):
         print("外部报警信号使能失败")
@@ -75,7 +75,7 @@ def set_Board_Mode(Channel_Num):
 
     #设置外部原点信号有效电平为高电平并使能
     if(myController.set_org_logic(Channel_Num, base.Logic_Flag.HIGH.value) == -1):
-        print("外部原点信号有限点电平使能失败")
+        print("外部原点信号有效点电平使能失败")
         return False
     if(myController.enable_org(Channel_Num, base.Status.ON.value) == -1):
         print("外部原点信号使能失败")
@@ -83,7 +83,7 @@ def set_Board_Mode(Channel_Num):
 
     #设置板卡报警信号有效电平为高电平并使能
     if(myController.set_card_alm_logic(cardno, base.Logic_Flag.HIGH.value) == -1):
-        print("板卡报警信号有限点电平使能失败")
+        print("板卡报警信号有效电平使能失败")
         return False
     if(myController.enable_card_alm(cardno, base.Status.ON.value) == -1):
         print("板卡报警信号使能失败")
