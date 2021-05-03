@@ -78,6 +78,7 @@ class Controller(object):
     def set_maxspeed(self, num, max_speed):
         num = ctypes.c_int(num)
         max_speed = ctypes.c_double(max_speed)
+        # self.controller.set_maxspeed.argtypes = (ctypes.c_int, ctypes.c_double)
         self.controller.set_maxspeed.restype = ctypes.c_int
         return self.controller.set_maxspeed(num, max_speed)
 
