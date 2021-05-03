@@ -78,7 +78,6 @@ class Controller(object):
     def set_maxspeed(self, num, max_speed):
         num = ctypes.c_int(num)
         max_speed = ctypes.c_double(max_speed)
-        # self.controller.set_maxspeed.argtypes = (ctypes.c_int, ctypes.c_double)
         self.controller.set_maxspeed.restype = ctypes.c_int
         return self.controller.set_maxspeed(num, max_speed)
 
@@ -179,12 +178,14 @@ class Controller(object):
 
     # (2)连续运动函数
     def con_vmove(self, num, dir1):
-        self.controller.con_vmove.argtyps = (ctypes.c_int, ctypes.c_int)
+        num = ctypes.c_int(num)
+        dir1 = ctypes.c_int(dir1)
         self.controller.con_vmove.restype = ctypes.c_int
         return self.controller.con_vmove(num, dir1)
 
     def fast_vmove(self, num, dir1):
-        self.controller.fast_vmove.argtyps = (ctypes.c_int, ctypes.c_int)
+        num = ctypes.c_int(num)
+        dir1 = ctypes.c_int(dir1)
         self.controller.fast_vmove.restype = ctypes.c_int
         return self.controller.fast_vmove(num, dir1)
 
@@ -195,33 +196,52 @@ class Controller(object):
         return self.controller.con_vmove2(num_1, dir1, num_2, dir2)
 
     def fast_vmove2(self, num_1, dir1, num_2, dir2):
-        self.controller.fast_vmove2.argtyps = (
-            ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        num_1 = ctypes.c_int(num_1)
+        num_2 = ctypes.c_int(num_2)
+        dir1 = ctypes.c_int(dir1)
+        dir2 = ctypes.c_int(dir2)
         self.controller.fast_vmove2.restype = ctypes.c_int
         return self.controller.fast_vmove2(num_1, dir1, num_2, dir2)
 
     def con_vmove3(self, num_1, dir1, num_2, dir2, num_3, dir3):
-        self.controller.con_vmove3.argtyps = (
-            ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        num_1 = ctypes.c_int(num_1)
+        num_2 = ctypes.c_int(num_2)
+        num_3 = ctypes.c_int(num_3)
+        dir1 = ctypes.c_int(dir1)
+        dir2 = ctypes.c_int(dir2)
+        dir3 = ctypes.c_int(dir3)
         self.controller.con_vmove3.restype = ctypes.c_int
         return self.controller.con_vmove3(num_1, dir1, num_2, dir2, num_3, dir3)
 
     def fast_vmove3(self, num_1, dir1, num_2, dir2, num_3, dir3):
-        self.controller.fast_vmove3.argtyps = (
-            ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        num_1 = ctypes.c_int(num_1)
+        num_2 = ctypes.c_int(num_2)
+        num_3 = ctypes.c_int(num_3)
+        dir1 = ctypes.c_int(dir1)
+        dir2 = ctypes.c_int(dir2)
+        dir3 = ctypes.c_int(dir3)
         self.controller.fast_vmove3.restype = ctypes.c_int
         return self.controller.fast_vmove3(num_1, dir1, num_2, dir2, num_3, dir3)
 
     def con_vmove4(self, num_1, dir1, num_2, dir2, num_3, dir3):
-        self.controller.con_vmove4.argtyps = (
-            ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int)
+        num_1 = ctypes.c_int(num_1)
+        num_2 = ctypes.c_int(num_2)
+        num_3 = ctypes.c_int(num_3)
+        dir1 = ctypes.c_int(dir1)
+        dir2 = ctypes.c_int(dir2)
+        dir3 = ctypes.c_int(dir3)
         self.controller.con_vmove4.restype = ctypes.c_int
         return self.controller.con_vmove4(num_1, dir1, num_2, dir2, num_3, dir3)
 
     def fast_vmove4(self, num_1, dir1, num_2, dir2, num_3, dir3, num_4, dir4):
-        self.controller.fast_vmove4.argtyps = (
-            ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int,
-            ctypes.c_int)
+        num_1 = ctypes.c_int(num_1)
+        num_2 = ctypes.c_int(num_2)
+        num_3 = ctypes.c_int(num_3)
+        num_4 = ctypes.c_int(num_4)
+        dir1 = ctypes.c_int(dir1)
+        dir2 = ctypes.c_int(dir2)
+        dir3 = ctypes.c_int(dir3)
+        dir4 = ctypes.c_int(dir4)
         self.controller.fast_vmove4.restype = ctypes.c_int
         return self.controller.fast_vmove4(num_1, dir1, num_2, dir2, num_3, dir3, num_4, dir4)
 
@@ -597,14 +617,16 @@ class Controller(object):
 
     # 控制器版本获取函数
     def get_lib_ver(self, major, minor1, minor2):
-        self.controller.get_lib_ver.argtyps = (
-            POINTER(ctypes.c_int), POINTER(ctypes.c_int), POINTER(ctypes.c_int))
+        major = ctypes.c_int(major)
+        minor1 = ctypes.c_int(minor1)
+        minor2 = ctypes.c_int(minor2)
         self.controller.get_lib_ver.restype = ctypes.c_int
         return self.controller.get_lib_ver(major, minor1, minor2)
 
     def get_sys_ver(self, major, minor1, minor2):
-        self.controller.get_sys_ver.argtyps = (
-            POINTER(ctypes.c_int), POINTER(ctypes.c_int), POINTER(ctypes.c_int))
+        major = ctypes.c_int(major)
+        minor1 = ctypes.c_int(minor1)
+        minor2 = ctypes.c_int(minor2)
         self.controller.get_sys_ver.restype = ctypes.c_int
         return self.controller.get_sys_ver(major, minor1, minor2)
 
