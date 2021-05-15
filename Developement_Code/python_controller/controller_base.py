@@ -660,10 +660,10 @@ class Axis_Num(Enum):
 
 
 class Status(Enum):
-    OFF = 0
-    ON = 1
+    ON = 0
+    OFF = 1
 
 
 class Logic_Flag(Enum):
-    LOW = 0
-    HIGH = 1
+    HIGH = 0
+    LOW = 1
