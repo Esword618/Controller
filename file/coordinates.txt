@@ -1,0 +1,46 @@
+
+* Automated measurement coordinates:
+
+% X-coord, Y-coord, Polarization, wavelength, type, deviceID, params 
+583, -1041, TE, 1550, device, Ping, recthole, w500, calibrate
+583, -966, TE, 1550, device, Ping, recthole, w500, 10
+583, -891, TE, 1550, device, Ping, recthole, w500, 20
+583, -816, TE, 1550, device, Ping, recthole, w500, 30
+583, -741, TE, 1550, device, Ping, recthole, w500, 40
+583, -666, TE, 1550, device, Ping, recthole, w500, 50
+583, -591, TE, 1550, device, Ping, recthole, w500, 60
+583, -516, TE, 1550, device, Ping, recthole, w500, 70
+583, -441, TE, 1550, device, Ping, recthole, w500, 80
+583, -366, TE, 1550, device, Ping, recthole, w500, 90
+583, -291, TE, 1550, device, Ping, recthole, w500, 100
+583, -216, TE, 1550, device, Ping, recthole, w500, calibrate2
+-607, -200, TE, 1550, device, Huiye, calwaveguide
+-610, -554, TE, 1550, device, Huiye, spiralwaveguide
+-143, -503, TE, 1550, device, Huiye, cal05
+-16, -503, TE, 1550, device, Huiye, cal06
+-413, -576, TE, 1550, device, Huiye, cal03
+-286, -576, TE, 1550, device, Huiye, cal04
+-696, -792, TE, 1550, device, Huiye, cal01
+-569, -792, TE, 1550, device, Huiye, cal02
+2, -771, TE, 1550, device, Huiye, spiral20
+-270, -845, TE, 1550, device, Huiye, spiral15
+-550, -918, TE, 1550, device, Huiye, spiral1
+1938, -890, TE, 1550, device, Huiye, filter5, cal01
+2065, -890, TE, 1550, device, Huiye, filter5, cal02
+1639, -906, TE, 1550, device, Huiye, filter4, cal01
+1766, -906, TE, 1550, device, Huiye, filter4, cal02
+1335, -884, TE, 1550, device, Huiye, filter3, cal01
+1462, -884, TE, 1550, device, Huiye, filter3, cal02
+1046, -900, TE, 1550, device, Huiye, filter2, cal01
+1173, -900, TE, 1550, device, Huiye, filter2, cal02
+738, -929, TE, 1550, device, Huiye, filter1, cal01
+865, -929, TE, 1550, device, Huiye, filter1, cal02
+2091, -1046, TE, 1550, device, Huiye, filter5
+1791, -1046, TE, 1550, device, Huiye, filter4
+1491, -1046, TE, 1550, device, Huiye, filter3
+1191, -1046, TE, 1550, device, Huiye, filter2
+891, -1046, TE, 1550, device, Huiye, filter1
+
+Number of automated measurement labels: 38.
+
+Number of sub-cells: 15

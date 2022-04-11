@@ -400,7 +400,7 @@ class Encapsulation():
         '''
         2 个轴以快速做点位运动
         '''
-        res = myController.con_pmove2(num_1, step_1, num_2, step_2)
+        res = myController.fast_pmove2(num_1, step_1, num_2, step_2)
         if res == -1:
             raise Exception("错误:fast_pmove2设运行异常")
         else:

@@ -18,7 +18,7 @@ base.set_s_curve(numY)
 # base.set_profile(num=numY)
 base.set_profile(numY, 10000, 50000, 80000, 80000)
 base.fast_pmove(numY, 100000)
-
+base.fast_pmove2()
 
 # 下电
 base.power_off()
